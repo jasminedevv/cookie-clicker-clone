@@ -14,63 +14,14 @@
     <p>Produces <span id="click-power-multiple">1</span> cookie(s) per click.</p>
     <button id="buy-click-power" type="button" name="button">Buy for <span id="click-power-price">50</span> cookies</button>
     <p>Level: <span id="click-power-level">1</span></p>
+    <hr>
+    <!---GRANDMAS-->
+    <p>Grandmas</p>
+    <p>Producing <span id="grandma-multiple">0</span> cookies per second!</p>
+    <button id="buy-grandma">Buy for <span id="grandma-price">500</span></button>
+    <p>Level: <span id="grandma-level">0</span></p>
   </body>
 
-  <script>
-  // counter and main button variables
-  let cookieCount = 500;
-  let clickPower = 1;
+  <script src="./scripts.js"></script>
 
-  let clickPowerPriceAmount = 50;
-  let clickPowerLevelNumber = 1;
-
-  console.log("initial cookie count is " + cookieCount);
-
-  let cookieCounter = document.getElementById('cookie-counter');
-  let cookieClicker = document.getElementById('cookie-clicker');
-
-  let refreshCookieCount = function() {
-    cookieCounter.innerHTML = cookieCount;
-    console.log("cookie count is now " + cookieCount);
-  }
-
-  // shop variables
-  let buyClickPowerElement = document.getElementById('buy-click-power');
-  let clickPowerPriceElement = document.getElementById('click-power-price');
-  let clickPowerLevelElement = document.getElementById('click-power-level');
-  let clickPowerMultiple = document.getElementById('click-power-multiple');
-
-  let refreshPowerClick = function() {
-    clickPowerLevelElement.innerHTML = clickPowerLevelNumber //???;
-    clickPowerPriceElement.innerHTML = clickPowerPriceAmount;
-    clickPowerMultiple.innerHTML = clickPower;
-    console.log("power level set to " + clickPower)
-  }
-
-  //event listeners
-  // increase cookie count by clickPower when button pressed
-  cookieClicker.addEventListener("click", function() {
-    cookieCount = cookieCount + clickPowerLevelNumber;
-    refreshCookieCount();
-    // console.log("cookie count is now " + cookieCount);
-  });
-
-
-  buyClickPowerElement.addEventListener("click", function() {
-    console.log("well at least the event listener works");
-    if (cookieCount >= clickPowerPriceAmount) {
-      console.log("item successfully bought");
-      cookieCount -= clickPowerPriceAmount;
-      clickPowerLevelNumber += 1;
-      clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.3);
-      refreshPowerClick();
-      refreshCookieCount();
-    } else {
-        console.log("you don't have enough cookies!");
-      }
-    });
-
-    refreshCookieCount();
-
-  </script>
 </html>
